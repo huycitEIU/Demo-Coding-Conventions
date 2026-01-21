@@ -1,47 +1,39 @@
 /*
  * License or copyright information, if present.
- * Copyright 2026 User Project.
+ * Copyright 2026 Tran Gia Huy Project.
  */
 package me.trangiahuy.demo;
 
-// Imports: Static imports first, then non-static.
-import static java.util.stream.Collectors.toList;
+// Imports
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-public class CodingConventionDemo {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
-}
-
-
+import static java.util.stream.Collectors.toList;
 
 /**
- * Lớp này minh họa các quy tắc trong Google Java Style Guide.
+ * Thi class represents the rules of coding conventions.
  *
  * <p> Exactly one top-level class per file.
  * Paragraphs in Javadoc are separated by a blank line.
  *
- * @author User
+ * @author Tran Gia Huy
  */
-class GoogleStyleDemo { // Class names in UpperCamelCase
+public class StyleGuideDemo { // Class names in UpperCamelCase
 
-    // Block indentation: +2 spaces (Not 4 spaces like standard Java)
+    // Block indentation: +4 spaces
 
     // Constant names use UPPER_SNAKE_CASE
     public static final int MAX_REQUEST_LIMIT = 100;
 
     // Non-constant field names in lowerCamelCase
     private final String instanceName;
-    private int processCount = 0;
+    private final int processCount = 0;
 
     /**
      * Summary fragment: A brief summary. Not a complete sentence.
      */
-    public GoogleStyleDemo(String instanceName) {
+    public StyleGuideDemo(String instanceName) {
         this.instanceName = instanceName;
     }
 
@@ -51,10 +43,10 @@ class GoogleStyleDemo { // Class names in UpperCamelCase
     }
 
     /**
-     * Xử lý dữ liệu đầu vào.
+     * Processing input data.
      *
-     * @param items danh sách các item cần xử lý Block tags order: param, return...
-     * @return số lượng item đã xử lý
+     * @param items List of items have to process Block tags order: param, return...
+     * @return the number of items have been processed
      */
     public int processData(List<String> items) {
         // One variable per declaration
@@ -81,14 +73,14 @@ class GoogleStyleDemo { // Class names in UpperCamelCase
     public String toString() {
         // Text Blocks (Java 15+) are supported and follow indentation rules
         return """
-        GoogleStyleDemo {
-          name: %s
-        }
-        """.formatted(instanceName);
+                GoogleStyleDemo {
+                  name: %s
+                }
+                """.formatted(instanceName);
     }
 
     /**
-     * Minh họa cách viết Switch expression (Java 17 style) và indent.
+     * Switch expression (Java 17 style) and indent.
      */
     public String getStatusDescription(int statusCode) {
         // Switch statements and expressions formatting
@@ -97,7 +89,7 @@ class GoogleStyleDemo { // Class names in UpperCamelCase
             case 404 -> "Not Found";
             // Every switch must be exhaustive (usually needs default)
             default -> {
-                // Indent +2 for block inside switch
+                // Indent +4 for block inside switch
                 String unknown = "Unknown code: " + statusCode;
                 yield unknown;
             }
@@ -111,7 +103,7 @@ class GoogleStyleDemo { // Class names in UpperCamelCase
         // Indent continuation lines at least +4 spaces
         List<String> filteredList = new ArrayList<>();
         filteredList.stream()
-                .filter(item -> item.length() > 10 && item.startsWith("prefix")) // Indent +4
+                .filter(item -> item.length() > 10 && item.startsWith("prefix")) // Indent +8
                 .collect(toList());
     }
 
@@ -126,11 +118,9 @@ class GoogleStyleDemo { // Class names in UpperCamelCase
         }
     }
 
-    // Array initializers can be block-like
+    // Array initializers
     private void arrayFormat() {
-        int[] numbers = new int[] {
-                0, 1, 2, 3
-        };
+        int[] numbers = new int[]{0, 1, 2, 3};
     }
 
     // Helper method for example
